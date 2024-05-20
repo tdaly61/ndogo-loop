@@ -2,9 +2,12 @@
 
 ## Description
 
-ndogo is Swahili for *small* and ndogo-loop deployment of vNext (beta) is a *small* simple, scripted/automated installer for Mojaloop vNext. For details on the Mojaloop vNext please refer to the Mojaloop reference architecture available from (http://mojaloop.io). The ndogo-loop vNext install mode is for  showcasing Mojaloop vNext, development, testing, workshops, integration testing, performance testing, learning, and more. ndogo-loop mode is designed to support people and organisations interested in Mojaloop vNext. However, it is crucial to note that ndogo-loop is **not intended for production use.**"
+ndogo is Swahili for *small* and ndogo-loop deployment of vNext (beta) is a *small* simple, scripted/automated installer for Mojaloop vNext. For details on the Mojaloop vNext please refer to the Mojaloop reference architecture available from (http://mojaloop.io). The ndogo-loop vNext install is for showcasing Mojaloop vNext, development, testing, workshops, integration testing, performance testing, learning, and more. ndogo-loop mode is designed to support people and organisations interested in Mojaloop vNext. However, it is crucial to note that ndogo-loop today is  **not intended for production use.**" 
 
-The goal is to make it realistic, easy, quick, scriptable and cost effective to deploy Mojaloop vNext in a variety of local or cloud environments.
+## related project(s)
+The Mifos Mojafos project overlaps with ndogo-loop in that it is using a similar approach and makes not just Mojaloop vNext deployable but combines vNext, Mifos/Fineract and Payment Hub EE (PHEE). See https://github.com/openMF/mojafos for details and downloadable package. 
+
+The goal of ndogo-loop is to make it realistic, easy, quick, scriptable and cost effective to deploy Mojaloop vNext in a variety of local or cloud environments and over time to make the deployments more secure, redundant and more of a head-start for increasingly sophisticated deployments , always with a focus to keep costs down and encourage participation and inovation by the widest possible audience. 
 - realistic: running a full kubernetes stack , so you can do real-world tests
 - easy : you only need to run 1 or 2 simple shell scripts
 - quick : With a sufficiently configured linux instance and internet connection it should be possible to deploy and configure Mojaloop vNext in approx 10-15 mins or less.
@@ -21,15 +24,15 @@ Example environments include:-
 2. using ndogo-loop you can easily deploy Mojaloop vNext to a single Raspberry PI 4's with 8GB Ram (more detail on this is planned) 
 
 # Installation instructions
-Assuming you have an x86_64 or ARM64 environment running Ubuntu release 22 and are logged in as a non-root user (e.g. nluser)
+Assuming you have an x86_64 or ARM64 environment running Ubuntu release 22 , logged in as a non-root user (e.g. ubuntu)
 ```bash
-login as nluser                                                       # login as  a non-root user e.g. nduser
-git clone --branch dev https://github.com/tdaly6/td-kube-utils.git    # clone td-kube-utils repo 
-cd ./td-kube-utils/vm/ndogo-loop             # cd to ndogo-loop dir
-sudo ./ndogo-loop-k8s.sh -m install -k k3s -v 1.28                     # install and configure k3s v1.28
-source $HOME/.bashrc                                                  # or logout/log in again to set env
-sudo ./ttk-interim-fix.sh                                             # ** do this on ARM64 ONLY [Note TTK on ARM is TBD] **
-./ndogo-loop-vnext.sh -m install_ml                                    # configure and deploy vNext
+login as ubuntu                                                      # login as  a non-root user e.g. ubuntu
+git clone --branch dev https://github.com/tdaly61/ndogo-loop.git     # clone ndogo-loop repo to ~ubuntu
+cd ndogo-loop                                                        # cd to ndogo-loop dir
+sudo ./ndogo-loop-k8s.sh -m install -v 1.28                          # install and configure k3s v1.28
+source $HOME/.bashrc                                                 # or logout/log in again to set env
+sudo ./ttk-interim-fix.sh                                            # ** do this on ARM64 ONLY [Note TTK on ARM is TBD] **
+./ndogo-loop-vnext.sh -m install_mlvn                                # configure and deploy vNext
 ```
 
 # Accessing Mojaloop from a laptop
