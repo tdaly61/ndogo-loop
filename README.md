@@ -28,11 +28,11 @@ Assuming you have an x86_64 or ARM64 environment running Ubuntu release 22 , log
 ```bash
 login as ubuntu                                                      # login as  a non-root user e.g. ubuntu
 git clone --branch dev https://github.com/tdaly61/ndogo-loop.git     # clone ndogo-loop repo to ~ubuntu
-cd ndogo-loop                                                        # cd to ndogo-loop dir
+cd ndogo-loop/vm                                                     # cd to ndogo-loop dir
 sudo ./ndogo-loop-k8s.sh -m install -v 1.28                          # install and configure k3s v1.28
 source $HOME/.bashrc                                                 # or logout/log in again to set env
 sudo ./ttk-interim-fix.sh                                            # ** do this on ARM64 ONLY [Note TTK on ARM is TBD] **
-./ndogo-loop-vnext.sh -m install_mlvn                                # configure and deploy vNext
+./ndogo-loop.sh -m install_mlvn                                      # configure and deploy vNext
 ```
 
 # Accessing Mojaloop from a laptop
